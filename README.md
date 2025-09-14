@@ -1,43 +1,151 @@
+AI Study Buddy - Educational AI Agent
+An intelligent study companion that processes your documents and provides personalized learning experiences through AI-powered interactions. This educational agent uses Mistral AI to transform static study materials into dynamic, interactive learning sessions.
+What This AI Agent Does
+This system functions as an autonomous educational assistant that:
+
+Processes Documents: Automatically extracts and analyzes content from uploaded PDFs
+Generates Learning Materials: Creates summaries, quizzes, and coding challenges tailored to your content
+Provides Conversational Tutoring: Offers guided study sessions with adaptive feedback
+Answers Questions: Uses RAG (Retrieval-Augmented Generation) to respond to queries about your documents
+Tracks Progress: Monitors quiz performance and provides personalized recommendations
+
+Core AI Agent Features
+🤖 Conversational Study Agent
+The AI_Agent.py module implements a conversational AI tutor that:
+
+Maintains conversation state throughout study sessions
+Uses function calling to execute educational tools
+Provides adaptive feedback based on quiz performance
+Guides students through structured learning workflows
+
+📊 Intelligent Content Analysis
+
+Automatically assesses document difficulty levels
+Estimates reading time for materials
+Identifies key skills needed for comprehension
+Generates structured summaries with actionable insights
+
+🎯 Adaptive Assessment Generation
+
+Creates difficulty-appropriate quizzes (Easy/Medium/Hard)
+Generates programming challenges based on document content
+Provides detailed explanations for learning reinforcement
+Offers retake recommendations based on performance
+
+🔍 Smart Document Retrieval
+
+Implements FAISS-based semantic search
+Provides contextually relevant answers to user questions
+Maintains document context across conversations
+Supports multi-document knowledge synthesis
+
+Technical Architecture
+AI Agent Components
+AI Study Buddy Agent/
+├── AI_Agent.py                 # Core conversational agent with tool calling
+├── Home.py                     # Document processing and initial analysis
+├── pages/
+│   ├── Ask_Your_Document_Anything.py  # RAG-powered Q&A system
+│   ├── Quiz_Generator.py              # Adaptive quiz generation
+│   └── Coding_Questions.py            # Programming challenge creator
+├── utils/
+│   ├── mistral_utils.py        # AI model integration and prompting
+│   └── st_utils.py            # UI components and data processing
+└── requirements.txt
+AI Models Used
+
+Primary Model: pixtral-12b-2409 (Mistral AI)
+Embeddings: mistral-embed for semantic search
+Response Format: Structured JSON outputs for reliable parsing
+
+Agent Capabilities
+The AI agent implements several key behaviors:
+
+Tool Selection: Automatically chooses appropriate functions based on user intent
+Context Retention: Maintains conversation state across interactions
+Performance Monitoring: Tracks and responds to student progress
+Adaptive Responses: Adjusts difficulty and recommendations based on user performance
+
+Installation and Setup
+Prerequisites
+
+Python 3.8+
+Mistral AI API key
+Streamlit for the web interface
+
+Quick Setup
+bash# Clone the repository
+git clone <your-repo-url>
+cd ai-study-buddy
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Configure API key
+mkdir .streamlit
+echo 'MISTRAL_API_KEY = "your-api-key-here"' > .streamlit/secrets.toml
+
+# Run the agent
+streamlit run Home.py
+Usage Workflow
+
+Document Upload: Upload PDF study materials
+Initial Analysis: AI agent processes and summarizes content
+Interactive Learning: Choose from guided study options:
+
+Conversational tutoring sessions
+Custom quiz generation
+Coding challenge creation
+Document Q&A
 
 
-An AI-powered personal tutor that generates tailored summaries, quizzes, coding challenges, and answers questions based on uploaded documents. Built using the Mistral API for advanced NLP capabilities.
-![image](https://github.com/user-attachments/assets/cef0543d-95d4-4924-aec8-5b57f4c6f92f)
+Progress Tracking: Agent monitors performance and provides feedback
+Adaptive Recommendations: Receive personalized study suggestions
 
-🚀 Features
+AI Agent Features in Detail
+Conversational Flow Management
+The agent maintains conversation state and guides users through educational workflows:
 
-Document Summarization: Upload PDFs and receive concise summaries.
-![image](https://github.com/user-attachments/assets/aa2f75c4-64a8-48a2-82c7-18011888874a)
+Initial document summarization
+Quiz offer and generation
+Performance evaluation and feedback
+Retake recommendations for scores below 75%
 
-Custom Quizzes: Generate quizzes with adjustable difficulty and number of questions.
-![image](https://github.com/user-attachments/assets/b42765c2-7fd2-4504-af70-d412aa662186)
+Intelligent Tool Calling
+The agent automatically selects and executes appropriate tools:
 
+summarize_document: Generates comprehensive document summaries
+create_quiz: Creates customized quizzes with specified parameters
+evaluate_quiz_score: Provides performance feedback and recommendations
 
-Coding Challenges: Create coding questions tailored to your study material.
-![image](https://github.com/user-attachments/assets/8c50041e-5d10-49bf-9f15-9e9377ffe5d4)
+Adaptive Learning Pathways
+Based on user performance, the agent:
 
-Q&A System: Ask questions and get answers retrieved from your documents using RAG (Retrieval-Augmented Generation).
+Suggests content review for low quiz scores
+Offers advanced challenges for high performers
+Provides targeted explanations for missed concepts
+Recommends optimal study sequences
 
-🛠️ Tech Stack
+Dependencies
+txtllama-index-llms-mistralai
+PyPDF2
+streamlit
+mistralai
+numpy
+faiss-cpu
+API Configuration
+The agent requires a Mistral AI API key configured in .streamlit/secrets.toml:
+tomlMISTRAL_API_KEY = "your-mistral-api-key"
+Contributing
+This AI agent can be extended with additional capabilities:
 
-Frontend: Streamlit
-Backend: Mistral AI API, FAISS for embedding-based search
-Languages: Python
+New question types and assessment formats
+Integration with additional AI models
+Enhanced conversation flows
+Multi-language support
+Advanced analytics and progress tracking
 
-🔧 Setup Instructions
-
-1. Clone the repository.
-2. Install dependencies using pip install -r requirements.txt
-3. Add your Mistral API key to secrets.toml in the .streamlit directory: toml
-  MISTRAL_API_KEY = "your-api-key"
-4. Run the app using: streamlit run Home.py
-   
-📄 Usage:
-
-Upload your study materials (PDFs).
-Explore generated summaries, quizzes, coding challenges, and Q&A.
-Customize difficulty levels and other settings for tailored experiences.
-
-🤝 Contributing:
-
-Feel free to submit pull requests or issues.
-"# AI-Study-Buddy---Educational-AI-Agent" 
+License
+This project is licensed under the MIT License - see the LICENSE file for details.
+Acknowledgments
+Built using Mistral AI's powerful language models and the Streamlit framework for creating interactive AI applications.
