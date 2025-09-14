@@ -39,19 +39,6 @@ Provides contextually relevant answers to user questions
 Maintains document context across conversations
 Supports multi-document knowledge synthesis
 
-Technical Architecture
-AI Agent Components
-AI Study Buddy Agent/
-├── AI_Agent.py                 # Core conversational agent with tool calling
-├── Home.py                     # Document processing and initial analysis
-├── pages/
-│   ├── Ask_Your_Document_Anything.py  # RAG-powered Q&A system
-│   ├── Quiz_Generator.py              # Adaptive quiz generation
-│   └── Coding_Questions.py            # Programming challenge creator
-├── utils/
-│   ├── mistral_utils.py        # AI model integration and prompting
-│   └── st_utils.py            # UI components and data processing
-└── requirements.txt
 AI Models Used
 
 Primary Model: pixtral-12b-2409 (Mistral AI)
