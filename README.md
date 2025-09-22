@@ -132,7 +132,4 @@ Enhanced conversation flows
 Multi-language support
 Advanced analytics and progress tracking
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
-Acknowledgments
-Built using Mistral AI's powerful language models and the Streamlit framework for creating interactive AI applications.
+
